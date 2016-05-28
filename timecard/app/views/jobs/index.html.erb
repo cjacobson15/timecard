@@ -1,0 +1,38 @@
+<div class="page-header">
+  <h1>
+    Jobs
+    <a href="/jobs/new" class="btn btn-lg btn-success">New Job</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Approval</th>
+        <th>Pay rate</th>
+        <th>Title</th>
+        <th>Company</th>
+        <th>Admin</th>
+        <th>User</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @jobs.each do |job| %>
+      <tr>
+        <td><%= job.approval %></td>
+        <td><%= job.pay_rate %></td>
+        <td><%= job.title %></td>
+        <td><%= job.company_id %></td>
+        <td><%= job.admin_id %></td>
+        <td><%= job.user_id %></td>
+        <td>
+          <a href="/jobs/<%= job.id %>" class="btn btn-primary">Show</a>
+          <a href="/jobs/<%= job.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_job/<%= job.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
